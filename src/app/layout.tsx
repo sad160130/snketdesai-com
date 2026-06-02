@@ -37,12 +37,21 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.role}`,
     description: site.tagline,
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — ${site.role}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.role}`,
     description: site.tagline,
     creator: "@DesaiSnket1669",
+    images: ["/og.png"],
   },
   robots: {
     index: true,
