@@ -54,7 +54,7 @@ export function Hero({ site }: { site: SiteConfig }) {
               style={{ ["--reveal-delay" as string]: "220ms" }}
               className="mt-9"
             >
-              <Socials links={site.socials} />
+              <Socials links={site.socials} email={site.email} />
             </div>
           </div>
         </div>

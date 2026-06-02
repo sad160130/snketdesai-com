@@ -1,4 +1,4 @@
-import { Github, Linkedin, type LucideIcon } from "lucide-react";
+import { Github, Linkedin, Mail, type LucideIcon } from "lucide-react";
 import type { SocialKey, SocialLink } from "@/config/site";
 
 /** lucide has no official X glyph, so we hand-roll the brand mark. */
@@ -21,11 +21,17 @@ const ICONS: Record<SocialKey, LucideIcon | typeof XIcon> = {
   x: XIcon,
 };
 
+const iconLinkClass =
+  "group inline-flex h-10 w-10 items-center justify-center rounded-full border border-line-strong bg-paper-raised text-ink-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent focus-visible:text-accent motion-reduce:hover:translate-y-0";
+
 export function Socials({
   links,
+  email,
   className = "",
 }: {
   links: SocialLink[];
+  /** When set, an email (mailto) icon is appended after the social links. */
+  email?: string;
   className?: string;
 }) {
   return (
@@ -39,13 +45,26 @@ export function Socials({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${social.label} (opens in a new tab)`}
-              className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-line-strong bg-paper-raised text-ink-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent focus-visible:text-accent motion-reduce:hover:translate-y-0"
+              className={iconLinkClass}
             >
               <Icon className="h-[18px] w-[18px]" />
             </a>
           </li>
         );
       })}
+
+      {email && (
+        <li key="email">
+          {/* mailto opens the visitor's mail client — no target/rel needed. */}
+          <a
+            href={`mailto:${email}`}
+            aria-label={`Email ${email}`}
+            className={iconLinkClass}
+          >
+            <Mail className="h-[18px] w-[18px]" />
+          </a>
+        </li>
+      )}
     </ul>
   );
 }

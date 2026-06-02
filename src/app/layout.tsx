@@ -82,6 +82,7 @@ function PersonJsonLd() {
     name: site.name,
     url: site.url,
     image: `${site.url}${site.avatar}`,
+    email: site.email,
     jobTitle: "Senior SEO Manager",
     worksFor: {
       "@type": "Organization",

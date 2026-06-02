@@ -27,8 +27,8 @@ export function Footer({ site }: { site: SiteConfig }) {
               >
                 LinkedIn
               </a>
-            )}{" "}
-            or{" "}
+            )}
+            ,{" "}
             {x && (
               <a
                 href={x.href}
@@ -39,8 +39,18 @@ export function Footer({ site }: { site: SiteConfig }) {
                 X
               </a>
             )}
+            , or{" "}
+            <a href={`mailto:${site.email}`} className={linkClass}>
+              email
+            </a>
             .
           </p>
+          <a
+            href={`mailto:${site.email}`}
+            className="mt-4 inline-block text-sm text-ink-soft underline decoration-line-strong decoration-1 underline-offset-4 transition-colors duration-300 hover:text-accent hover:decoration-accent"
+          >
+            {site.email}
+          </a>
         </div>
 
         <p className="text-sm text-ink-faint">
