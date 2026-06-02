@@ -10,7 +10,7 @@ $inkSoft = [System.Drawing.ColorTranslator]::FromHtml('#57514a')
 $accent  = [System.Drawing.ColorTranslator]::FromHtml('#c2470f')
 $line    = [System.Drawing.ColorTranslator]::FromHtml('#cfc6b6')
 
-$name    = 'Sanket Desai'
+$name    = 'Snket Desai'
 $role    = 'SENIOR SEO MANAGER @ CAPITAL ONE SHOPPING'
 $tagline = '10 years scaling organic traffic for Fortune 500 and crypto media - now building SEO tools and content sites of my own.'
 $domain  = 'snketdesai.com'

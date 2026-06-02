@@ -1,6 +1,6 @@
 # snketdesai.com
 
-Personal founder hub for **Sanket Desai** — a single, fully static page: intro,
+Personal founder hub for **Snket Desai** — a single, fully static page: intro,
 social links, and a grid of the products and sites I'm building.
 
 Built with **Next.js (App Router) + TypeScript + Tailwind CSS v4**. No CMS, no

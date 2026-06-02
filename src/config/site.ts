@@ -18,6 +18,7 @@ export interface SocialLink {
 /** Category / status shown as a tag on each project card. */
 export type ProjectTag =
   | "SaaS"
+  | "Tool"
   | "Directory"
   | "Local"
   | "Stealth"
@@ -56,7 +57,7 @@ export interface SiteConfig {
 
 export const site: SiteConfig = {
   url: "https://snketdesai.com",
-  name: "Sanket Desai",
+  name: "Snket Desai",
   role: "Senior SEO Manager @ Capital One Shopping",
   tagline:
     "10 years scaling organic traffic for Fortune 500 and crypto media — now building SEO tools and content sites of my own.",
@@ -97,6 +98,20 @@ export const site: SiteConfig = {
         "Automated internal linking SaaS. Matches new posts to existing pages and suggests anchor text + placement.",
       tag: "SaaS",
       url: "TODO",
+    },
+    {
+      name: "WhiteScreen.wiki",
+      description:
+        "Free, ad-free full-screen color tool — 44 curated shades for focus, less eye strain, and screen testing.",
+      tag: "Tool",
+      url: "https://whitescreen.wiki/",
+    },
+    {
+      name: "TextFormater.online",
+      description:
+        "Browser-based text toolkit — 50+ case converters, formatters, and generators, all client-side, no signup.",
+      tag: "Tool",
+      url: "https://www.textformater.online/",
     },
     {
       name: "Stealth SaaS",
