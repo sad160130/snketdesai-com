@@ -49,6 +49,8 @@ export interface SiteConfig {
   tagline: string;
   /** Path (in /public) to the avatar image. */
   avatar: string;
+  /** Contact email address (no "mailto:" prefix). */
+  email: string;
   socials: SocialLink[];
   /** Brand names for the "Previously" strip — text only, no logos. */
   experience: string[];
@@ -62,6 +64,7 @@ export const site: SiteConfig = {
   tagline:
     "10 years scaling organic traffic for Fortune 500 and crypto media — now building SEO tools and content sites of my own.",
   avatar: "/avatar.jpg",
+  email: "snket@snketdesai.com",
 
   socials: [
     {
@@ -79,7 +82,8 @@ export const site: SiteConfig = {
       label: "GitHub",
       href: "https://github.com/sad160130",
     },
-    // Email intentionally omitted — will add a Google Workspace address later.
+    // Email lives in the top-level `email` field (rendered as a mail icon
+    // and in the footer), not here.
   ],
 
   experience: [
@@ -124,7 +128,7 @@ export const site: SiteConfig = {
       name: "Eat Real Food NYC",
       description: "Curated directory of healthy restaurants in NYC.",
       tag: "Directory",
-      url: "TODO",
+      url: "https://www.eatrealfoodnyc.com/",
     },
     {
       name: "ConsignmentStores.site",
