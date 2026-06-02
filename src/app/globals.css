@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: `.dark` toggled on <html> by the theme script. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens — an editorial founder-hub palette.
+ * Warm paper background, warm near-black ink, a single confident terracotta
+ * accent. Light is the default; .dark overrides below.
+ */
+:root {
+  --paper: #f6f2ea;
+  --paper-raised: #fbf8f2;
+  --ink: #1b1916;
+  --ink-soft: #57514a;
+  --ink-faint: #8a8278;
+  --line: #e0d9cc;
+  --line-strong: #cfc6b6;
+  --accent: #c2470f;
+  --accent-soft: #d9844f;
+  --accent-tint: rgba(194, 71, 15, 0.08);
+  --selection: rgba(194, 71, 15, 0.18);
+}
+
+.dark {
+  --paper: #14130f;
+  --paper-raised: #1c1a15;
+  --ink: #f1ece1;
+  --ink-soft: #b3ac9f;
+  --ink-faint: #7d766b;
+  --line: #2c2920;
+  --line-strong: #3a362b;
+  --accent: #e8743a;
+  --accent-soft: #c2470f;
+  --accent-tint: rgba(232, 116, 58, 0.12);
+  --selection: rgba(232, 116, 58, 0.22);
+}
+
+/* Map tokens into Tailwind's theme so utilities like text-ink, bg-paper work. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-hanken);
+
+  --tracking-tightest: -0.04em;
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Fine grid-line texture — understated, fixed so it reads as paper. */
+    background-image: linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center top;
+    /* keep the grid extremely faint */
+    background-blend-mode: normal;
+  }
+
+  /* Soften the grid so it's a whisper, not a feature. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-color: var(--paper);
+    opacity: 0.86;
+  }
+
+  ::selection {
+    background: var(--selection);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+  }
+}
+
+/* Editorial section index label, e.g. "01 / Selected work" */
+@layer components {
+  .eyebrow {
+    font-family: var(--font-sans), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+}
+
+/*
+ * Scroll reveal — gentle fade + slide. Driven by an IntersectionObserver that
+ * adds `data-reveal="in"`. Honors prefers-reduced-motion (no transform/opacity).
+ */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal="in"] {
+    opacity: 1;
+    transform: none;
+  }
+}
