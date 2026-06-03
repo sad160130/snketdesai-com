@@ -58,7 +58,7 @@ function CardBody({ project }: { project: ProjectCardType }) {
         <Tag label={project.tag} muted={isTeaser} />
       </div>
 
-      <h3 className="mt-5 font-display text-xl font-medium tracking-tight text-ink">
+      <h3 className="mt-5 break-words font-display text-xl font-medium tracking-tight text-ink">
         {project.name}
       </h3>
       <p className="mt-2 text-pretty text-[0.95rem] leading-relaxed text-ink-soft">
