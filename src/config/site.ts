@@ -4,7 +4,7 @@
  * code needs to be touched.
  */
 
-export type SocialKey = "linkedin" | "x" | "github";
+export type SocialKey = "linkedin" | "x" | "github" | "instagram";
 
 export interface SocialLink {
   /** Stable key, also used to pick the icon. */
@@ -81,6 +81,11 @@ export const site: SiteConfig = {
       key: "github",
       label: "GitHub",
       href: "https://github.com/sad160130",
+    },
+    {
+      key: "instagram",
+      label: "Instagram",
+      href: "https://www.instagram.com/snket2411/",
     },
     // Email lives in the top-level `email` field (rendered as a mail icon
     // and in the footer), not here.

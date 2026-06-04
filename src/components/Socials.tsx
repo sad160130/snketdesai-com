@@ -1,4 +1,10 @@
-import { Github, Linkedin, Mail, type LucideIcon } from "lucide-react";
+import {
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  type LucideIcon,
+} from "lucide-react";
 import type { SocialKey, SocialLink } from "@/config/site";
 
 /** lucide has no official X glyph, so we hand-roll the brand mark. */
@@ -19,6 +25,7 @@ const ICONS: Record<SocialKey, LucideIcon | typeof XIcon> = {
   linkedin: Linkedin,
   github: Github,
   x: XIcon,
+  instagram: Instagram,
 };
 
 const iconLinkClass =

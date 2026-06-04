@@ -40,3 +40,6 @@ next-env.d.ts
 *.log
 server.out
 server.err
+
+# personal scratch — not part of the website
+/Instagram/
